@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공유오피스 비즈플러스 | 강남 비상주사무실</title>
+<meta name="description" content="서울 강남 테헤란로, 사업자등록 주소지와 우편 관리, 회의실을 한곳에서 이용하는 비상주 사무실 비즈플러스입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#181A17;
+    --paper:#F7F4EC;
+    --paper-2:#EFEADC;
+    --brass:#A9824C;
+    --brass-deep:#7C5F37;
+    --pine:#28433B;
+    --line:#D7D0BC;
+    --muted:#716B5C;
+    --white:#FFFFFF;
+    --radius:2px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Sans KR', sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Noto Serif KR', serif;
+    margin:0;
+    color:var(--ink);
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  section{padding:96px 0;}
+  .hline{border:none; border-top:1px solid var(--line); margin:0;}
+  .eyebrow{
+    font-size:13px;
+    color:var(--brass-deep);
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .eyebrow::before{content:"";width:16px;height:1px;background:var(--brass-deep);display:inline-block;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,244,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px; max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Noto Serif KR',serif; font-weight:700; font-size:19px;}
+  .seal{
+    width:34px; height:34px; border-radius:50%;
+    border:1.5px solid var(--brass);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Noto Serif KR', serif; font-size:14px; color:var(--brass-deep); font-weight:700;
+  }
+  .navlinks{display:flex; gap:32px; font-size:15px;}
+  .navlinks a:hover{color:var(--brass-deep);}
+  .nav-cta{
+    font-size:14px; font-weight:700; padding:10px 18px;
+    border:1px solid var(--ink); border-radius:var(--radius);
+  }
+  .nav-cta:hover{background:var(--ink); color:var(--paper);}
+  .navlinks, .nav-cta{display:flex;}
+  @media (max-width:760px){
+    .navlinks{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:80px 0 0;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center;
+  }
+  .hero h1{font-size:42px; line-height:1.28; margin:20px 0 24px;}
+  .hero p.lead{font-size:17px; color:var(--muted); max-width:440px; margin-bottom:32px;}
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:14px 26px; font-weight:700; font-size:15px;
+    border-radius:var(--radius); cursor:pointer; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--pine); color:var(--white);}
+  .btn-primary:hover{background:#1c332c;}
+  .btn-ghost{border-color:var(--ink); color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:var(--paper);}
+
+  /* receipt mock visual, grounded in "사업자등록" theme */
+  .receipt{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:32px 30px;
+    position:relative;
+    box-shadow:6px 6px 0 var(--paper-2);
+  }
+  .receipt::before{
+    content:"";
+    position:absolute; inset:8px;
+    border:1px dashed var(--line);
+    pointer-events:none;
+  }
+  .receipt-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:1px solid var(--ink); padding-bottom:12px; margin-bottom:18px;
+  }
+  .receipt-head span{font-size:12px; color:var(--muted); letter-spacing:0.04em;}
+  .receipt-title{font-family:'Noto Serif KR',serif; font-weight:700; font-size:17px;}
+  .receipt-row{
+    display:flex; justify-content:space-between; font-size:14px;
+    padding:10px 0; border-bottom:1px dotted var(--line);
+  }
+  .receipt-row:last-of-type{border-bottom:none;}
+  .receipt-row .k{color:var(--muted);}
+  .stamp{
+    position:absolute; right:26px; bottom:26px;
+    width:78px; height:78px; border-radius:50%;
+    border:2px solid var(--brass); color:var(--brass-deep);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; font-family:'Noto Serif KR',serif; font-weight:700; font-size:13px;
+    transform:rotate(-14deg);
+  }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero h1{font-size:32px;}
+  }
+
+  /* ---------- Stats ---------- */
+  .stats{
+    margin-top:80px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stats .wrap{display:grid; grid-template-columns:repeat(4,1fr);}
+  .stat{
+    padding:36px 24px; text-align:left; border-left:1px solid var(--line);
+  }
+  .stat:first-child{border-left:none;}
+  .stat .num{font-family:'Noto Serif KR',serif; font-size:36px; color:var(--brass-deep); font-weight:700;}
+  .stat .lbl{font-size:13px; color:var(--muted); margin-top:6px;}
+  @media (max-width:760px){
+    .stats .wrap{grid-template-columns:repeat(2,1fr);}
+    .stat{border-left:none; border-top:1px solid var(--line);}
+  }
+
+  /* ---------- Section heading pattern ---------- */
+  .sec-head{margin-bottom:52px; max-width:560px;}
+  .sec-head h2{font-size:30px; margin-top:14px;}
+  .sec-head p{color:var(--muted); margin-top:12px; font-size:15.5px;}
+
+  /* ---------- Ledger feature list ---------- */
+  .ledger{border-top:1px solid var(--ink);}
+  .ledger-item{
+    display:grid; grid-template-columns:64px 1fr; gap:28px;
+    padding:30px 0; border-bottom:1px solid var(--line);
+  }
+  .ledger-item .no{font-family:'Noto Serif KR',serif; font-size:22px; color:var(--brass);}
+  .ledger-item h3{font-size:18px; margin-bottom:8px;}
+  .ledger-item p{color:var(--muted); font-size:14.5px; max-width:520px;}
+
+  /* ---------- Process steps ---------- */
+  .steps{position:relative;}
+  .step-row{
+    display:grid; grid-template-columns:120px 1fr; gap:28px;
+    padding:28px 0; border-bottom:1px solid var(--line);
+  }
+  .step-row:first-child{border-top:1px solid var(--ink);}
+  .step-tag{font-family:'Noto Serif KR',serif; color:var(--brass-deep); font-weight:700; font-size:15px;}
+  .step-body h3{font-size:17px; margin-bottom:6px;}
+  .step-body p{color:var(--muted); font-size:14.5px;}
+
+  /* ---------- Pricing ---------- */
+  .tabs{display:flex; gap:10px; margin-bottom:28px;}
+  .tab-btn{
+    padding:10px 20px; font-size:14px; font-weight:700; cursor:pointer;
+    border:1px solid var(--line); background:var(--white); border-radius:var(--radius);
+  }
+  .tab-btn.active{border-color:var(--ink); background:var(--ink); color:var(--paper);}
+  .price-table{width:100%; border-collapse:collapse; font-size:14.5px;}
+  .price-table th, .price-table td{
+    padding:16px 14px; text-align:left; border-bottom:1px solid var(--line);
+  }
+  .price-table th{
+    font-size:12.5px; color:var(--muted); font-weight:700; border-bottom:1px solid var(--ink);
+  }
+  .price-table td.mo{font-family:'Noto Serif KR',serif; font-weight:700; font-size:17px;}
+  .tag-best{
+    display:inline-block; margin-left:8px; font-size:11px; font-weight:700;
+    color:var(--brass-deep); border:1px solid var(--brass); padding:2px 7px; border-radius:20px;
+  }
+  .price-panel{display:none;}
+  .price-panel.active{display:block;}
+  .price-note{font-size:13px; color:var(--muted); margin-top:14px;}
+  .price-block + .price-block{margin-top:64px;}
+  .price-block h3{font-size:20px; margin-bottom:6px;}
+  .price-block .sub{color:var(--muted); font-size:14px; margin-bottom:24px;}
+
+  /* ---------- Combo ---------- */
+  .combo-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .combo-card{background:var(--white); padding:34px;}
+  .combo-tag{font-size:12px; font-weight:700; color:var(--brass-deep); border:1px solid var(--brass); display:inline-block; padding:3px 10px; border-radius:20px; margin-bottom:16px;}
+  .combo-card h3{font-size:19px; margin-bottom:14px;}
+  .combo-card ul{margin:0 0 18px; padding-left:18px; color:var(--muted); font-size:14.5px;}
+  .combo-card li{margin-bottom:8px;}
+  .combo-card .price-line{font-size:15px; margin-bottom:6px;}
+  .combo-card .price-line s{color:var(--muted); margin-right:8px;}
+  .combo-card .price-line b{font-family:'Noto Serif KR',serif; color:var(--pine); font-size:17px;}
+  @media (max-width:760px){.combo-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Gallery placeholder ---------- */
+  .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  .ph{
+    aspect-ratio:4/3; background:
+      repeating-linear-gradient(135deg, var(--paper-2), var(--paper-2) 10px, #E5DFCC 10px, #E5DFCC 20px);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; color:var(--muted); font-size:12.5px; padding:10px;
+  }
+  @media (max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Reviews ---------- */
+  .reviews{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .review{background:var(--white); padding:28px; font-size:14.5px;}
+  .review .stars{color:var(--brass-deep); letter-spacing:2px; margin-bottom:12px;}
+  .review p{color:var(--ink); margin-bottom:16px;}
+  .review .who{color:var(--muted); font-size:13px;}
+  @media (max-width:860px){.reviews{grid-template-columns:1fr;}}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item:first-child{border-top:1px solid var(--ink);}
+  .faq-item summary{
+    cursor:pointer; padding:22px 0; font-weight:700; font-size:15.5px;
+    list-style:none; display:flex; justify-content:space-between; align-items:center;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+"; font-size:20px; color:var(--brass-deep); font-weight:400;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item .a{padding:0 0 24px; color:var(--muted); font-size:14.5px; max-width:640px;}
+
+  /* ---------- Location ---------- */
+  .loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;}
+  .loc-map{aspect-ratio:1/0.8; background:var(--paper-2); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px;}
+  .loc-info dt{font-size:12.5px; color:var(--muted); margin-top:18px;}
+  .loc-info dd{margin:4px 0 0; font-size:15.5px;}
+  @media (max-width:860px){.loc-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--ink); color:var(--paper);}
+  .contact .sec-head p, .contact .sec-head .eyebrow{color:#C9C2AD;}
+  .contact .sec-head h2{color:var(--paper);}
+  form.consult{display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:640px;}
+  form.consult .full{grid-column:1/-1;}
+  form.consult label{font-size:13px; color:#C9C2AD; display:block; margin-bottom:6px;}
+  form.consult input, form.consult textarea{
+    width:100%; background:transparent; border:none; border-bottom:1px solid #4A4A40;
+    color:var(--paper); font-size:15px; padding:8px 0; font-family:inherit;
+  }
+  form.consult textarea{resize:vertical; min-height:60px;}
+  form.consult input:focus, form.consult textarea:focus{outline:none; border-bottom-color:var(--brass);}
+  .contact .btn-primary{background:var(--brass); color:var(--ink); margin-top:8px;}
+  .contact .btn-primary:hover{background:#c69a63;}
+  .form-note{font-size:12.5px; color:#8B8676; margin-top:14px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:48px 0; border-top:1px solid var(--line); font-size:13px; color:var(--muted);}
+  footer .flinks{display:flex; gap:18px; margin-bottom:18px;}
+  footer .flinks a:hover{color:var(--brass-deep);}
+  footer p{margin:4px 0;}
+
+  ::selection{background:var(--brass); color:var(--white);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand"><span class="seal">B+</span>비즈플러스</div>
+    <nav class="navlinks">
+      <a href="#pricing">요금 및 서비스</a>
+      <a href="#process">이용절차</a>
+      <a href="#faq">FAQ</a>
+      <a href="#location">위치</a>
+    </nav>
+    <a class="nav-cta" href="#contact">상담 신청</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">강남 테헤란로 · 비상주 사무실</span>
+      <h1>사업자등록에 필요한 주소, 오늘 안에 준비됩니다</h1>
+      <p class="lead">강남 테헤란로에 위치한 실운영 오피스에서 사업자등록 주소지, 우편 관리, 회의실 이용까지 한 번에 해결하세요. 매니저가 상주하며 직접 응대합니다.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">지금 상담 신청하기</a>
+        <a href="#pricing" class="btn btn-ghost">요금표 보기</a>
+      </div>
+    </div>
+    <div class="receipt">
+      <div class="receipt-head">
+        <span class="receipt-title">비상주 사무실 접수증</span>
+        <span>NO. 2026-0001</span>
+      </div>
+      <div class="receipt-row"><span class="k">이용 주소</span><span>서울 강남구 테헤란로 6길 27</span></div>
+      <div class="receipt-row"><span class="k">접수 유형</span><span>비상주 · 개인/법인</span></div>
+      <div class="receipt-row"><span class="k">계약서 발송</span><span>접수 후 10분 이내</span></div>
+      <div class="receipt-row"><span class="k">반려 시 처리</span><span>계약금액 100% 환불</span></div>
+      <div class="stamp">접수<br>완료</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><div class="num">5분</div><div class="lbl">평균 계약 소요 시간</div></div>
+      <div class="stat"><div class="num">97%</div><div class="lbl">사업자등록 승인율</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">우편 수령·전달 처리율</div></div>
+      <div class="stat"><div class="num">10분</div><div class="lbl">클레임 평균 응답 시간</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">서비스</span>
+      <h2>공간을 빌려드리는 게 아니라, 사업 운영을 함께 합니다</h2>
+      <p>주소지 제공에서 끝나지 않고, 우편·회의실·세무·정책자금까지 창업 초기에 필요한 실무를 연결해 드려요.</p>
+    </div>
+    <div class="ledger">
+      <div class="ledger-item">
+        <div class="no">01</div>
+        <div><h3>사업자등록 주소지 제공</h3><p>세무서 실사에 대응 가능한 실제 사무 공간을 기반으로, 등록 반려 부담 없이 사업을 시작할 수 있습니다.</p></div>
+      </div>
+      <div class="ledger-item">
+        <div class="no">02</div>
+        <div><h3>우편·택배 수령 및 전달</h3><p>도착한 우편물은 매니저가 직접 수령해 사진으로 안내드리고, 요청 시 지정 주소로 재발송해 드립니다.</p></div>
+      </div>
+      <div class="ledger-item">
+        <div class="no">03</div>
+        <div><h3>회의실 · 공용 업무 공간</h3><p>비상주 회원도 사전 예약을 통해 회의실과 OA존을 월 2회까지 무료로 이용할 수 있습니다.</p></div>
+      </div>
+      <div class="ledger-item">
+        <div class="no">04</div>
+        <div><h3>세무 · 정책자금 연계</h3><p>전문가와 연결된 결합 서비스로 법인 설립, 기장, 정책자금 진단까지 이어서 진행할 수 있습니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">이용 절차</span>
+      <h2>상담부터 계약서 발급까지, 하루면 충분합니다</h2>
+    </div>
+    <div class="steps">
+      <div class="step-row"><div class="step-tag">STEP 01</div><div class="step-body"><h3>상담 신청</h3><p>문의 남겨주시면 담당 매니저가 배정되어 업종에 맞는 이용 방식을 안내해 드립니다.</p></div></div>
+      <div class="step-row"><div class="step-tag">STEP 02</div><div class="step-body"><h3>결제 및 안내</h3><p>비대면 전자계약으로 진행되며 카드 결제도 가능합니다.</p></div></div>
+      <div class="step-row"><div class="step-tag">STEP 03</div><div class="step-body"><h3>계약서 발급</h3><p>계약 완료 후 10분 내로 임대차 계약서를 발송해 드립니다.</p></div></div>
+      <div class="step-row"><div class="step-tag">STEP 04</div><div class="step-body"><h3>사업자 등록</h3><p>받은 계약서로 바로 사업자등록을 진행하고, 이후 실무 지원이 시작됩니다.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">이용 요금 (VAT 별도)</span>
+      <h2>보증금 없이, 회의실 혜택까지 포함된 요금제</h2>
+    </div>
+
+    <div class="price-block">
+      <h3>비상주 사무실</h3>
+      <p class="sub">보증금·예치금 없이 이용하며, 계약 기간이 길수록 월 이용료가 낮아집니다.</p>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="personal">개인사업자</button>
+        <button class="tab-btn" data-tab="corp">법인사업자</button>
+      </div>
+      <div class="price-panel active" id="personal">
+        <table class="price-table">
+          <thead><tr><th>계약 기간</th><th>월 이용료</th></tr></thead>
+          <tbody>
+            <tr><td>3개월</td><td class="mo">45,000원</td></tr>
+            <tr><td>6개월</td><td class="mo">35,000원</td></tr>
+            <tr><td>12개월<span class="tag-best">BEST</span></td><td class="mo">25,000원</td></tr>
+            <tr><td>24개월<span class="tag-best">BEST</span></td><td class="mo">20,800원</td></tr>
+            <tr><td>36개월</td><td class="mo">18,000원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="price-panel" id="corp">
+        <table class="price-table">
+          <thead><tr><th>계약 기간</th><th>월 이용료</th></tr></thead>
+          <tbody>
+            <tr><td>3개월</td><td class="mo">55,000원</td></tr>
+            <tr><td>6개월</td><td class="mo">45,000원</td></tr>
+            <tr><td>12개월<span class="tag-best">BEST</span></td><td class="mo">35,000원</td></tr>
+            <tr><td>24개월<span class="tag-best">BEST</span></td><td class="mo">31,200원</td></tr>
+            <tr><td>36개월</td><td class="mo">27,700원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-note">사업자등록 반려 시 계약금액 100% 환불해 드립니다.</p>
+    </div>
+
+    <div class="price-block">
+      <h3>공유오피스 · 상주 사무실</h3>
+      <p class="sub">24시간 출입, 유·무선 초고속 인터넷, 회의실 및 OA존 무제한 이용이 포함됩니다.</p>
+      <table class="price-table">
+        <thead><tr><th>구성</th><th>월 이용료</th></tr></thead>
+        <tbody>
+          <tr><td>1인실</td><td class="mo">300,000원</td></tr>
+          <tr><td>2인실</td><td class="mo">500,000원</td></tr>
+          <tr><td>4인실</td><td class="mo">900,000원</td></tr>
+          <tr><td>5인실</td><td class="mo">1,100,000원</td></tr>
+          <tr><td>6인실 이상 · 팀 오피스(20평 이상)</td><td class="mo">1,400,000원부터</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="combo" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">결합 서비스</span>
+      <h2>계약과 세무, 정책자금까지 한 흐름으로</h2>
+      <p>전문가와 연계된 결합 서비스를 이용하면 비상주 이용료가 더 낮아집니다.</p>
+    </div>
+    <div class="combo-grid">
+      <div class="combo-card">
+        <span class="combo-tag">결합 A형</span>
+        <h3>비상주 사무실 + 세무 서비스</h3>
+        <ul>
+          <li>세무기장 계약 시 비상주 이용료 할인 (개인, 12개월 기준)</li>
+          <li>법인은 설립 대행 수수료 면제</li>
+          <li>세무기장료는 별도 안내</li>
+        </ul>
+        <div class="price-line"><s>월 25,000원</s><b>월 15,000원</b></div>
+      </div>
+      <div class="combo-card">
+        <span class="combo-tag">결합 B형</span>
+        <h3>비상주 사무실 + 정책자금 서비스</h3>
+        <ul>
+          <li>무료 적합성 진단 리포트 제공</li>
+          <li>준비 서류 체크리스트 안내</li>
+          <li>신청 가능 루트 1~3개 제안</li>
+        </ul>
+        <div class="price-line"><s>월 25,000원</s><b>월 15,000원</b></div>
+      </div>
+    </div>
+    <p class="price-note" style="margin-top:20px;">비상주 기본 혜택: 우편물 안내 · 미팅룸 이용 · OA존 이용</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">공간 안내</span>
+      <h2>강남 테헤란로, 실제로 운영되는 오피스</h2>
+      <p>새 사무실 사진으로 교체 예정입니다. 아래 네 칸에 실제 촬영 이미지를 넣어주세요.</p>
+    </div>
+    <div class="gallery">
+      <div class="ph">사진 1<br>라운지 전경</div>
+      <div class="ph">사진 2<br>공용 업무 공간</div>
+      <div class="ph">사진 3<br>회의실</div>
+      <div class="ph">사진 4<br>입구 · 리셉션</div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">이용 후기</span>
+      <h2>비즈플러스를 이용하신 분들의 이야기</h2>
+      <p>아래는 예시 문구입니다. 실제 이용 후기가 모이면 이 자리에 교체해 주세요.</p>
+    </div>
+    <div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>비상주라 걱정했는데 실제로 매니저분이 상주하고 계셔서 문의할 때마다 빠르게 답을 받을 수 있었어요.</p>
+        <div class="who">개인사업자 이용 고객</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>계약부터 사업자등록까지 하루 만에 끝났습니다. 강남 주소라 거래처 신뢰도도 올라간 느낌이에요.</p>
+        <div class="who">법인사업자 이용 고객</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>우편물을 사진으로 바로 보내주셔서 출장 중에도 확인이 가능했고, 회의실도 필요할 때 편하게 예약했어요.</p>
+        <div class="who">1인 창업 이용 고객</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">자주 묻는 질문</span>
+      <h2>궁금한 점이 있다면 먼저 확인해 보세요</h2>
+    </div>
+    <div>
+      <details class="faq-item" open>
+        <summary>비상주 사무실은 어떤 서비스인가요?<span></span></summary>
+        <div class="a">사업자등록에 필요한 주소지를 제공하는 서비스입니다. 실제 상주 없이도 법적으로 인정되는 주소를 사용할 수 있어, 초기 창업자나 재택 위주 사업자에게 적합합니다. 우편물 수령 등 기본 오피스 기능도 함께 지원됩니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary>어떤 업종이 주로 이용하나요?<span></span></summary>
+        <div class="a">전자상거래, IT 개발, 컨설팅, 디자인, 콘텐츠 제작 등 고정된 근무 공간이 필요 없는 업종에서 많이 이용합니다. 법인 설립이나 지점 설립 시에도 활용됩니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary>계약 절차는 어떻게 진행되나요?</summary>
+        <div class="a">온라인 상담 후 계약서 작성, 서류 제출, 결제 순으로 진행되며 보통 10분 이내에 완료됩니다. 방문이 어려운 경우 비대면 전자계약으로도 진행할 수 있습니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary>우편물이나 택배는 어떻게 받나요?</summary>
+        <div class="a">매니저가 우편물을 대신 수령하고 사진으로 안내드립니다. 직접 방문 수령도 가능하며, 요청 시 지정 주소로 재발송해 드립니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary>관공서나 금융기관의 현장 실사가 가능한가요?</summary>
+        <div class="a">네, 유령 사무실이 아닌 실제 매니저가 상주하는 오피스입니다. 사업자등록이나 법인 설립을 위한 관공서 실사에 대응할 수 있도록 공간과 서류를 준비해 드립니다.</div>
+      </details>
+      <details class="faq-item">
+        <summary>비상주 회원도 회의실을 이용할 수 있나요?</summary>
+        <div class="a">사전 예약을 통해 회의실과 공용 OA존을 이용할 수 있으며, 월 2회까지 무료로 제공됩니다.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="location" style="background:var(--paper-2);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">위치</span>
+      <h2>강남 테헤란로에서 만나요</h2>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-map">지도 영역 — 네이버/카카오 지도 embed 코드로 교체하세요</div>
+      <dl class="loc-info">
+        <dt>주소</dt>
+        <dd>서울특별시 강남구 테헤란로 6길 27, 4층</dd>
+        <dt>전화</dt>
+        <dd>02-0000-0000 <span style="color:var(--muted); font-size:13px;">(연락처 입력 필요)</span></dd>
+        <dt>이용 안내</dt>
+        <dd>사전 예약 후 방문 상담 가능</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">무료 상담</span>
+      <h2>1분이면 상담 신청이 끝나요</h2>
+      <p>아래 정보를 남겨주시면 담당 매니저가 순서대로 연락드립니다.</p>
+    </div>
+    <form class="consult" onsubmit="event.preventDefault(); alert('폼 제출 기능은 아직 연결되지 않았습니다. Formspree, Google Form 등 백엔드를 연결해 주세요.');">
+      <div>
+        <label>이름</label>
+        <input type="text" required>
+      </div>
+      <div>
+        <label>연락처</label>
+        <input type="tel" required>
+      </div>
+      <div class="full">
+        <label>이메일 (선택)</label>
+        <input type="email">
+      </div>
+      <div class="full">
+        <label>문의내용 (선택)</label>
+        <textarea></textarea>
+      </div>
+      <div class="full">
+        <button type="submit" class="btn btn-primary">무료 상담 신청하기</button>
+        <p class="form-note">이 폼은 정적 페이지 데모입니다. GitHub Pages에 올린 뒤에는 Formspree, Google Form 또는 자체 백엔드와 연결해야 실제로 접수됩니다.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="#pricing">요금 및 서비스</a>
+      <a href="#faq">FAQ</a>
+      <a href="#location">위치</a>
+      <a href="#contact">상담 신청</a>
+    </div>
+    <p>(주) 공유오피스 비즈플러스 | 사업자등록번호 : 000-00-00000 (입력 필요)</p>
+    <p>주소 : 서울특별시 강남구 테헤란로 6길 27, 4층</p>
+    <p>EMAIL : contact@bizplus.co.kr (입력 필요)</p>
+    <p>&copy; 2026 공유오피스 비즈플러스. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.price-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
